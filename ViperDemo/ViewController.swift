@@ -16,20 +16,31 @@ class ViewController: BaseViewController, PresenterDelegate {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var chatList: UITableView!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var footerView: UIView!
     
     private var presenter: Presenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter = Presenter(handler: self)
         // Do any additional setup after loading the view, typically from a nib.
         self.initUI()
-        self.presenter = Presenter(handler: self)
     }
     
     func initUI() {
-//        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
-//        self.profileImage.clipsToBounds = true
         self.profileImage.setAsCircularImage()
+        self.presenter.initViews(self.chatList)
+        self.chatList.estimatedRowHeight = 60
+        self.chatList.rowHeight = UITableViewAutomaticDimension
+        self.chatList.setNeedsLayout()
+        self.chatList.layoutIfNeeded()
+        
+        self.footerView.layer.cornerRadius = self.footerView.frame.size.height / 2
+        self.footerView.clipsToBounds = true
+        self.footerView.layer.borderWidth = 3.0
+        self.footerView.layer.borderColor = UIColor.lightGrayColor().CGColor
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,15 +53,19 @@ class ViewController: BaseViewController, PresenterDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateView(response: Mappable) {
+    func updateView(response: AnyObject?) {
         self.hideSpinner()
-        if let chatThread = response as? ChatThreadModel {
-            nameLabel.text = chatThread.name
-            if let profile = chatThread.profile_img, url = NSURL(string: profile) {
+        if let header = response as? ChatThreadHeaderViewModel {
+            nameLabel.text = header.name
+            if let profile = header.profileImage, url = NSURL(string: profile) {
                 profileImage.kf_showIndicatorWhenLoading = true
                 profileImage.kf_setImageWithURL(url)
             }
+            self.dateLabel.text = header.dateStr
+        } else {
+            self.chatList.reloadData()
         }
+        //refresh the whole view
     }
     
     func updateError(error: ErrorType?) {

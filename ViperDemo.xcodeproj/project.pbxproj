@@ -18,9 +18,9 @@
 		7EA17A651DB627DC00C18D00 /* ViperDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A641DB627DC00C18D00 /* ViperDemoUITests.swift */; };
 		7EA17A731DB631B100C18D00 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A721DB631B100C18D00 /* Interactor.swift */; };
 		7EA17A751DB6490200C18D00 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A741DB6490200C18D00 /* BaseViewController.swift */; };
-		7EA17A771DB66ADD00C18D00 /* CurrentUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A761DB66ADD00C18D00 /* CurrentUserCell.swift */; };
+		7EA17A771DB66ADD00C18D00 /* SenderChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A761DB66ADD00C18D00 /* SenderChatCell.swift */; };
 		7EA17A791DB66F6D00C18D00 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A781DB66F6D00C18D00 /* Presenter.swift */; };
-		7EA17A7B1DB6921700C18D00 /* NonCurrentUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A7A1DB6921700C18D00 /* NonCurrentUserCell.swift */; };
+		7EA17A7B1DB6921700C18D00 /* RecieverUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A7A1DB6921700C18D00 /* RecieverUserCell.swift */; };
 		7EA17A7D1DB692E400C18D00 /* Utill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA17A7C1DB692E400C18D00 /* Utill.swift */; };
 		9F5120AB0AEDAB9938D59C99 /* Pods_ViperDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F17DFF53CC3C514AAE18A4 /* Pods_ViperDemo.framework */; };
 /* End PBXBuildFile section */
@@ -63,9 +63,9 @@
 		7EA17A661DB627DC00C18D00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EA17A721DB631B100C18D00 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		7EA17A741DB6490200C18D00 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		7EA17A761DB66ADD00C18D00 /* CurrentUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserCell.swift; sourceTree = "<group>"; };
+		7EA17A761DB66ADD00C18D00 /* SenderChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SenderChatCell.swift; sourceTree = "<group>"; };
 		7EA17A781DB66F6D00C18D00 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		7EA17A7A1DB6921700C18D00 /* NonCurrentUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonCurrentUserCell.swift; sourceTree = "<group>"; };
+		7EA17A7A1DB6921700C18D00 /* RecieverUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecieverUserCell.swift; sourceTree = "<group>"; };
 		7EA17A7C1DB692E400C18D00 /* Utill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utill.swift; sourceTree = "<group>"; };
 		9F28BB5A27FB181347D76F92 /* Pods-ViperDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViperDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViperDemoUITests/Pods-ViperDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B46ED9154DE59CF3355E8C89 /* Pods_ViperDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViperDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,9 +144,9 @@
 				7EA17A4D1DB627DC00C18D00 /* LaunchScreen.storyboard */,
 				7EA17A501DB627DC00C18D00 /* Info.plist */,
 				7EA17A721DB631B100C18D00 /* Interactor.swift */,
-				7EA17A761DB66ADD00C18D00 /* CurrentUserCell.swift */,
+				7EA17A761DB66ADD00C18D00 /* SenderChatCell.swift */,
 				7EA17A781DB66F6D00C18D00 /* Presenter.swift */,
-				7EA17A7A1DB6921700C18D00 /* NonCurrentUserCell.swift */,
+				7EA17A7A1DB6921700C18D00 /* RecieverUserCell.swift */,
 				7EA17A7C1DB692E400C18D00 /* Utill.swift */,
 			);
 			path = ViperDemo;
@@ -447,8 +447,8 @@
 			files = (
 				7EA17A7D1DB692E400C18D00 /* Utill.swift in Sources */,
 				7EA17A791DB66F6D00C18D00 /* Presenter.swift in Sources */,
-				7EA17A7B1DB6921700C18D00 /* NonCurrentUserCell.swift in Sources */,
-				7EA17A771DB66ADD00C18D00 /* CurrentUserCell.swift in Sources */,
+				7EA17A7B1DB6921700C18D00 /* RecieverUserCell.swift in Sources */,
+				7EA17A771DB66ADD00C18D00 /* SenderChatCell.swift in Sources */,
 				7EA17A731DB631B100C18D00 /* Interactor.swift in Sources */,
 				7EA17A751DB6490200C18D00 /* BaseViewController.swift in Sources */,
 				7EA17A471DB627DC00C18D00 /* ViewController.swift in Sources */,

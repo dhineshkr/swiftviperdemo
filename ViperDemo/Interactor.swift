@@ -44,8 +44,8 @@ class ChatMessageModel : Mappable {
     var type:String?
     var message:String?
     var url:String?
-    var read:Bool?
-    var received:Bool?
+    var read:String?
+    var received:String?
     
     func mapping(map: Map) {
         is_current_user <- map["is_current_user"]

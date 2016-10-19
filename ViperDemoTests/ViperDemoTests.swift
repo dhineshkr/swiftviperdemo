@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import ObjectMapper
 @testable import ViperDemo
 
 class ViperDemoTests: XCTestCase {
@@ -21,9 +22,31 @@ class ViperDemoTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testInteractor() {
         // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let expectation = expectationWithDescription("Get chat history test")
+        
+        class TestInteractorHandler: InteractorDelegate {
+            var expect: XCTestExpectation?
+            func responseOnSuccess(response:Mappable) {
+                if let _ = response as? ChatThreadModel {
+                    expect?.fulfill()
+                } else {
+                    XCTFail("Get chat history failed")
+                }
+            }
+            func responseOnFailure(error: ErrorType?) {
+                XCTFail("Get chat history failed")
+            }
+        }
+        let testHandler = TestInteractorHandler()
+        testHandler.expect = expectation
+        let testInteractor = Interactor(handler: testHandler)
+        testInteractor.getChatThread()
+        
+        self.waitForExpectationsWithTimeout(20) { error in
+            XCTAssertNil(error, "Something went horribly wrong")
+        }
     }
     
     func testPerformanceExample() {
