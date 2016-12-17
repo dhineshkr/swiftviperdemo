@@ -27,20 +27,25 @@ class ViewController: BaseViewController, PresenterDelegate {
         self.presenter = Presenter(handler: self)
         // Do any additional setup after loading the view, typically from a nib.
         self.initUI()
+        self.presenter.initViews(self.chatList)
     }
     
     func initUI() {
         self.profileImage.setAsCircularImage()
-        self.presenter.initViews(self.chatList)
-        self.chatList.estimatedRowHeight = 60
+        self.chatList.estimatedRowHeight = 70
         self.chatList.rowHeight = UITableViewAutomaticDimension
         self.chatList.setNeedsLayout()
         self.chatList.layoutIfNeeded()
         
         self.footerView.layer.cornerRadius = self.footerView.frame.size.height / 2
         self.footerView.clipsToBounds = true
-        self.footerView.layer.borderWidth = 3.0
-        self.footerView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.footerView.layer.borderWidth = 2.0
+        self.footerView.layer.borderColor = Utill.getColor(229, g: 229, b: 229).CGColor
+        
+        self.footerView.layer.masksToBounds = false
+        self.footerView.layer.shadowOffset = CGSizeMake(2, 2)
+        self.footerView.layer.shadowRadius = 1
+        self.footerView.layer.shadowOpacity = 0.25
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -12,19 +12,19 @@ import Foundation
 
 class RecieverUserCell: UITableViewCell {
     
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var message: UITextView!
     @IBOutlet weak var profileImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         profileImage.setAsCircularImage()
-        self.messageLabel.layer.cornerRadius = 10.0
-        self.messageLabel.layer.masksToBounds = true
+        self.message.layer.cornerRadius = 15.0
+        self.message.layer.masksToBounds = true
     }
     
     func initCellWithData(data: RecieverChatViewModel) {
-        self.messageLabel.text = data.message
+        self.message.text = data.message
         if let url = NSURL(string: data.profileImage) {
             self.profileImage.kf_showIndicatorWhenLoading = true
             self.profileImage.kf_setImageWithURL(url)

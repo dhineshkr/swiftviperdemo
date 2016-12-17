@@ -31,6 +31,7 @@ class SenderChatViewModel {
     var recieved: String?
     var read: String?
     var bgColor: UIColor
+    var type: String?
     init(msg: String, color: UIColor) {
         self.message = msg
         self.bgColor = color
@@ -107,6 +108,7 @@ class Presenter : NSObject, UITableViewDataSource, InteractorDelegate {
                     if let boolStr = chat.received where boolStr == "true" {
                         sentChat.recieved = "checkboxSelected"
                     }
+                    sentChat.type = chat.type
                     messagesVM.append(sentChat)
                 }
             } else {
@@ -131,3 +133,5 @@ class Presenter : NSObject, UITableViewDataSource, InteractorDelegate {
     }
     
 }
+
+

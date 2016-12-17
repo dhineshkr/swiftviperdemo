@@ -74,8 +74,8 @@ class Interactor {
     }
     
     func getChatThread() {
-        let URL = "http://f22labs.com/public/test/chat/chat.json"
-        Alamofire.request(.GET, URL).responseObject { (
+        let URL = "https://demo6377508.mockable.io/viperdemo"
+        Alamofire.request(.POST, URL).responseObject { (
             response: Response<ChatThreadModel, NSError>) in
             
             if let chatThread = response.result.value {
